@@ -14,7 +14,9 @@ gem 'sass-rails', '>= 6'
 gem 'slim'
 gem 'stimulus-rails'
 gem 'turbo-rails'
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 5.2.1'
+gem "stimulus_reflex", "3.5.0.pre0"
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -25,7 +27,7 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
-  gem 'spring'
+  # gem 'spring'
 end
 
 group :test do

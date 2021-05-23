@@ -1,0 +1,13 @@
+.row
+  .col-md-9
+    h1 Stonknotes Journal
+    #stonknotes-journal
+      button.btn.btn-primary.mb-2#add-twit-button( type='button' ) New Note
+      #stonknotes= render partial: 'stonknotes/stonknote', collection: @stonknotes
+      #beacon(data-controller='stonknotes' data-cursor=@stonknotes.last.id)
+        button.btn.btn-primary.mb-2(data-action='stonknotes#appear') Load more
+  .col-md-3.bg--orange
+    .col-sm.bg-danger
+      h2 Tickers
+    .col-sm.bg-gradient
+      h2 Tags

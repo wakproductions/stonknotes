@@ -1,4 +1,4 @@
 div( class=stonknote_show_class(stonknote) data-stonknote-id=stonknote.id )
-  .stonknote-show__timestamp= stonknote.stonknote_show_timestamp
+  .stonknote-show__timestamp= stonknote.created_at.strftime("%Y-%m-%d %l:%M%P") + " - " + stonknote.id.to_s
   p= stonknote.message
   .stonknote-show__actions 👍🏽😐👎🏽

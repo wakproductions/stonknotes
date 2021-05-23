@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @result = Stonknote.order(id: :desc).first(20).map { |sn| StonknotePresenter.new(sn) }
+    @stonknotes = Stonknote.order(id: :desc).limit(20)
   end
 end

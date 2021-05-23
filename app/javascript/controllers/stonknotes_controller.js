@@ -1,20 +1,15 @@
-import { Controller } from "stimulus"
-// import { Turbo } from "@hotwired/turbo-rails"
-import { turboReady } from "../utils/turbo_utils"
+import ApplicationController from './application_controller'
+import { useIntersection } from 'stimulus-use'
 
-export default class extends Controller {
-  static targets = ['cursor', 'loadMoreButton'];
+export default class extends ApplicationController {
+  connect () {
+    super.connect()
+    useIntersection(this)
+  }
 
-  infiniteScroll() {
-    let scrollTriggerPosition = document.body.clientHeight - window.innerHeight - 500;
-    if(window.scrollY >= scrollTriggerPosition && turboReady()) {
-      // console.log('Triggering infinite scroll event');
-      // console.log('Cursor position: ' + document.querySelector('input[data-stonknotes-target="cursor"]').value);
-      // console.log(`Turbo.status ${Turbo.navigator?.formSubmission?.state} / Turbo ready? ${turboReady()}`);
-      this.loadMoreButtonTarget.click();
-
-      // Disable button so form doesn't accidentally get submitted multiple times
-      this.loadMoreButtonTarget.setAttribute('disabled', true);
-    }
+  appear () {
+    this.stimulate('Stonknotes#load').then(({ payload }) =>
+      this.element.setAttribute('data-cursor', payload)
+    )
   }
 }

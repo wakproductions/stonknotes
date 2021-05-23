@@ -1,6 +1,0 @@
-= form_tag stonknotes_path, id: :stonknotes_load_more_form do
-  = hidden_field_tag 'cursor', stonknotes&.last&.id, 'data-stonknotes-target': 'cursor'
-  = button_tag "Load More",
-          class: 'button btn btn-primary',
-          type: 'submit',
-          'data-stonknotes-target': 'loadMoreButton'
