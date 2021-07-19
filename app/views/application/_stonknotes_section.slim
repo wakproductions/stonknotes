@@ -1,7 +1,10 @@
 h1 Stonknotes Journal
 
 #stonknotes-journal( data-controller='stonknotes' data-action="scroll@window->stonknotes#infiniteScroll" )
-  button.btn.btn-primary.mb-2#add-twit-button( type='button' ) New Note
+  button.btn.btn-primary.mb-2#add-twit-button( type='button' data-action="stonknotes#newNote" ) New Note
+
+  .new-stonknote-form.modal
+    = turbo_frame_tag :new_stonknote_form, src: new_stonknote_path
 
   = turbo_frame_tag :stonknotes_content
     = render partial: 'stonknotes', locals: { stonknotes: @result }

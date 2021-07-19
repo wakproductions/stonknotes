@@ -27,6 +27,7 @@
 !/storage/.keep
 
 /public/assets
+/public/local_note_taker_screenshots
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.

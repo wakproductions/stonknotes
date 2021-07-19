@@ -1,4 +1,11 @@
-div( class=stonknote_show_class(stonknote) data-stonknote-id=stonknote.id )
-  .stonknote-show__timestamp= stonknote.stonknote_show_timestamp
-  p= stonknote.message
-  .stonknote-show__actions 👍🏽😐👎🏽
+div( class=stonknote_show_class(stonknote) data-stonknote-id=stonknote.id)
+  .row
+    .col-sm-10
+      .stonknote-show__timestamp= stonknote.stonknote_show_timestamp
+      p= stonknote.message
+      .stonknote-show__actions 👍🏽😐👎🏽
+    - if stonknote.image_original_url.present?
+      .col-sm-2
+        = link_to(image_tag(stonknote.image_thumb_url, class: 'stonknote-image-thumbnail'),
+                  stonknote.image_original_url,
+                  target: "_blank")
