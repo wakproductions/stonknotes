@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap.scss";
+@import "bootstrap-workarounds";
 
 .bg--orange { background-color: $orange-100; }
 .bg--lightgray { background-color: $gray-300; }

@@ -1,0 +1,21 @@
+= turbo_frame_tag :stonknote_form
+  .modal-dialog( data-controller='modal' )
+    .modal-content
+      = form_with(model: stonknote) do |f|
+        f.hidden_field :id
+
+        .modal-header
+          h5.modal-title= stonknote_form_title(stonknote)
+          button.btn-close( type='button' class='btn-close' data-bs-dismiss='modal' data-modal-target='closeButton')
+
+        .modal-body.row
+          - unless f.object.valid?
+            .alert.alert-danger( data-modal-target='validationErrorAlert') Validation Error
+
+          .col-sm-2.col-form-label= f.label :message, class: 'col-form-label'
+          .col-sm-10
+            = f.text_field :message, class: form_control_class(f, :message, 'form-control')
+            = form_control_validation_message(f, :message)
+
+        .modal-footer
+          = f.submit class: 'btn btn-primary'

@@ -1,0 +1,3 @@
+- if @result.valid? # TODO change to persisted
+  = turbo_stream.prepend(:stonknotes_content, partial: 'stonknotes', locals: { stonknotes: [@result] })
+= turbo_stream.update(:stonknote_form, partial: 'form', locals: { stonknote: @result })

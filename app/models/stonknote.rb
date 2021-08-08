@@ -5,4 +5,6 @@ class Stonknote < ApplicationRecord
   enum call_result: { no_call: 0, correct: 1, incorrect: 2, partial: 3 }
 
   scope :showing, -> { where(hide: false) }
+
+  validates :message, length: { maximum: 10 } # TODO Temporary to test validation for modal form
 end

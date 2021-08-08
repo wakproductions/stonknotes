@@ -1,21 +1,17 @@
 import { Controller } from "stimulus"
+import * as bootstrap from "bootstrap"
 // import { Turbo } from "@hotwired/turbo-rails"
 import { turboReady } from "../utils/turbo_utils"
 
 export default class extends Controller {
-  static targets = ['cursor', 'loadMoreButton'];
+  static targets = ['cursor', 'loadMoreButton', 'newStonknoteModal'];
 
-  newNote() {
-    // let note_text = window.prompt('New Local Twit Text');
-    // if note_text
-    //   $.ajax
-    // url: 'stocktwits/add_twit',
-    //   method: 'post',
-    //   context: document.body,
-    //   data:
-    // followup_id: followup_id,
-    //   message: note_text,
-    //   screen_count: screen_count
+  initialize() {
+    // console.log('Stonknotes Controller Initialized');
+  }
+
+  connect() {
+    // console.log('Stonknotes Controller Connected');
   }
 
   infiniteScroll() {

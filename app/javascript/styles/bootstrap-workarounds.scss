@@ -1,0 +1,6 @@
+// This is to replace the TWBS .invalid-feedback class, which is buggy
+// https://stackoverflow.com/questions/45673354/bootstrap-4-invalid-feedback-with-input-group-not-displaying
+.invalid-feedback--bsfixed {
+  @extend .text-danger;
+  font-size: 9pt;
+}

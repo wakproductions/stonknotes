@@ -16,22 +16,23 @@ class StonknotesController < ApplicationController
   end
 
   def create
+    # TODO remove this code with actual code that validates the stonknote. This is just dummy code for testing the modal
     new_stonknote = Stonknote.new(stonknote)
     new_stonknote.assign_attributes(
       stonknote_time: Time.current,
       symbol: "XYZ",
       stonknote_date: Date.current,
     )
-    @result = [StonknotePresenter.new(new_stonknote)]
+    @result = StonknotePresenter.new(new_stonknote)
 
     respond_to do |format|
-      format.turbo_stream do
-        render(
-          turbo_stream: turbo_stream.prepend(
-            :stonknotes_content, partial: 'stonknotes', locals: { stonknotes: @result }
-        ))
+      if new_stonknote.valid?
+        format.turbo_stream { render(layout: false) }
+        format.html { redirect_to :stonknotes_path }
+      else
+        format.turbo_stream { render(layout: false) }
+        format.html
       end
-      format.html { redirect_to :stonknotes_path }
     end
   end
 
