@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
+ruby '3.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
@@ -15,6 +15,14 @@ gem 'slim'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'webpacker', '~> 5.0'
+
+# PDF Benchmark Testing
+gem 'grover'
+gem 'prawn'
+gem 'prawn-table'
+gem 'wicked_pdf'
+
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
