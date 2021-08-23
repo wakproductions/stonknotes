@@ -17,6 +17,9 @@ table.report.pad-top-20
       td= line.reference_number
       td= line.item_name
       td.align-right= format_currency(line.cost)
+  tr
+    td.align-right.bold-text( colspan="2" ) Total:
+    td.align-right.bold-text= report_data.cost_total
 
 table.invisible.pad-top-20
   tr
