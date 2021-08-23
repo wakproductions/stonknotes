@@ -21,6 +21,7 @@ gem 'grover'
 gem 'prawn'
 gem 'prawn-table'
 gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 gem 'faker'
 

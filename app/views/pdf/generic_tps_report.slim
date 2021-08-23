@@ -1,0 +1,25 @@
+table.invisible
+  tr
+    td( style="width: 50%;")
+      p.nospacing TPS Report
+      h4.nospacing= report_data.salesperson_name
+    td.align-right( style="right; width: 50%;")
+      p.nospacing= report_data.company_name
+      p.nospacing= date_range_header(report_data)
+
+table.report.pad-top-20
+  tr
+    td.align-left Reference #
+    td.align-left Item Name
+    td.align-right Amount
+  - report_data.report_lines.each do |line|
+    tr
+      td= line.reference_number
+      td= line.item_name
+      td.align-right= format_currency(line.cost)
+
+table.invisible.pad-top-20
+  tr
+    td( style="width: 50%;") Total Amount:
+    td.align-right( style="right; width: 50%;")= format_currency(report_data.cost_total)
+

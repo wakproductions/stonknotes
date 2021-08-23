@@ -11,7 +11,6 @@ class GeneratePdfPrawn
       raise ArgumentError, 'report must be a PdfReportData struct'
     end
 
-    @file_path = file_path
     @report_data = report_data
 
     document = build_pdf
@@ -40,7 +39,6 @@ class GeneratePdfPrawn
       bounding_box([0, bounds.top], width: 270, height: 52) do
         text report_name
         font('Helvetica', size: 14, style: :bold) { text salesperson_name }
-        text 'Contractor Invoice'
       end
 
       bounding_box([RIGHT_BOUNDARY_OF_PAGE / 2, bounds.top], width: 270, height: 52) do
@@ -108,7 +106,7 @@ class GeneratePdfPrawn
   end
 
   def table_header
-    ['Reference #', 'Job / Customer Name', 'Amount'].map { |title| "<b>#{title}</b>" }
+    ['Reference #', 'Item Name', 'Amount'].map { |title| "<b>#{title}</b>" }
   end
 
 end
