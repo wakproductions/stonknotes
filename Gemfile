@@ -17,6 +17,7 @@ gem 'turbo-rails'
 gem 'webpacker', '~> 5.0'
 
 # PDF Benchmark Testing
+gem 'benchmark'
 gem 'grover'
 gem 'prawn'
 gem 'prawn-table'
